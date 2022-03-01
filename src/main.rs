@@ -1,3 +1,19 @@
+use std::env;
+mod client;
+
 fn main() {
-    println!("Hello, world!");
+    let args: Vec<String> = env::args().collect();
+    let command = &args[1];
+    match command.as_str() {
+        "devices" => println!("{:#?}", client::get_devices()),
+
+        "room_light_on" => client::post_custom_command("room_light", "全灯"),
+        "room_light_night" => client::post_custom_command("room_light", "お好みの明るさ"),
+        "room_light_off" => client::post_turn_off_command("room_light"),
+
+        "desk_light_on" => client::post_turn_on_command("desk_light"),
+        "desk_light_off" => client::post_turn_off_command("desk_light"),
+
+        _ => println!("unknown command!"),
+    }
 }
