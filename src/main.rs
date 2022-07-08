@@ -14,6 +14,11 @@ fn main() {
         "desk_light_on" => client::post_turn_on_command("desk_light"),
         "desk_light_off" => client::post_turn_off_command("desk_light"),
 
+        "ac_on" => client::post_turn_on_command("ac"),
+        "ac_off" => client::post_turn_off_command("ac"),
+
+        "fan_volume" => client::post_custom_command("fan", "風量"),
+
         _ => println!("unknown command!"),
     }
 }
