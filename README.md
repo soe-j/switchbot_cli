@@ -1,6 +1,4 @@
-# my_room
-
-SwitchBot CLI
+# SwitchBot CLI
 
 ## example
 
